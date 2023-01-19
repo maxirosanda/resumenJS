@@ -28,3 +28,22 @@ console.log( titulo.innerText ) // “Hola Mundo!”
 // cambio el contenido del elemento
 titulo.innerText = "Hola Coder!"
 console.log( titulo.innerText ) // “Hola Coder!”
+
+let container = document.getElementById("contenedor")
+// cambio el código HTML interno
+container.innerHTML = "<h2>Hola mundo!</h2><p>Lorem ipsum</p>"
+
+//A través de la propiedad className de algún nodo seleccionado podemos acceder al atributo class del mismo y definir cuáles van a ser sus clases:
+container.className = "container row" //pisa las clases anteriores
+
+let parrafo2 = document.createElement("p");
+// Insertar HTML interno
+parrafo2.innerHTML = "<h2>¡Hola Coder!</h2>"; 
+// Añadir el nodo Element como hijo de body
+document.body.append(parrafo2); //lo agrega al final
+
+parrafo.remove();
+paises[0].remove()
+
+document.getElementById("nombre").value = "HOMERO";
+document.getElementById("edad").value   = 39;
