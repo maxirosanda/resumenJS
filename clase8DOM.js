@@ -22,4 +22,9 @@ for (const div of contenedores) {
   console.log(div.innerHTML);
 }
 
-
+//CODIGO JS
+let titulo = document.getElementById("titulo")
+console.log( titulo.innerText ) // “Hola Mundo!”
+// cambio el contenido del elemento
+titulo.innerText = "Hola Coder!"
+console.log( titulo.innerText ) // “Hola Coder!”
