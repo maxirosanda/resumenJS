@@ -39,7 +39,7 @@ const generadorNumero = () => {
 }
 
 console.log( generadorNumero() )
-
+/*
 console.log( new Date() )
 //La convención con la que trabaja Javascript para construir fechas cuenta los meses a partir del 0 (0 = enero, 11 = diciembre) y los días a partir del 1:
 console.log(new Date(2020, 1, 15))
@@ -60,3 +60,27 @@ console.log( hoy.toDateString() ) // Fri Dec 17 2021
 console.log( hoy.toLocaleString() ) // 17/12/2021 00:00:00
 console.log( hoy.toLocaleDateString() ) // 17/12/2021
 console.log( hoy.toTimeString() ) // 00:00:00 GMT-0300 (hora estándar de Argentina)
+*/
+
+//Los resultados de las diferencias entre fechas se generan en milisegundos. 
+//Ejemplo 1
+const navidad = new Date("December 25, 2021")
+const hoy = new Date("December 17, 2021")
+
+console.log( navidad - hoy ) // 691200000
+
+const milisegundosPorDia = 86400000
+
+console.log( (navidad - hoy ) / milisegundosPorDia) // 8
+
+//Ejemplo 2
+const inicio = new Date()
+
+for (let i = 0; i < 1000; i++) {
+    console.log("haciendo tiempo")
+}
+
+const final = new Date()
+
+console.log("El proceso tardó: " + (final - inicio) + " milisegundos")
+// El proceso tardó: 396 milisegundos
