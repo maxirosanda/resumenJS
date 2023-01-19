@@ -22,6 +22,21 @@ for (const div of contenedores) {
   console.log(div.innerHTML);
 }
 
+//Query Selector
+// puedo seleccionar la etiqueta <p> siguiendo la sintaxis de CSS para selectores:
+let parrafoQuery = document.querySelector("#contenedorQuery p")
+// seleccionar sólo el contenedor por id con #
+let contenedor = document.querySelector("#contenedorQuery")
+
+// o por clase:
+parrafoQuery = document.querySelector(".texto")
+//puedo seleccionar pseudoClases
+//selecciona el primer elemento que cumple con la seleccion
+let radioChecked = document.querySelector(".radio:checked")
+//devuelve ul array de elementos
+let radiosChecked = document.querySelectorAll(".radio:checked")
+
+
 //CODIGO JS
 let titulo = document.getElementById("titulo")
 console.log( titulo.innerText ) // “Hola Mundo!”
