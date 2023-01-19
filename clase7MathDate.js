@@ -40,3 +40,23 @@ const generadorNumero = () => {
 
 console.log( generadorNumero() )
 
+console.log( new Date() )
+//La convención con la que trabaja Javascript para construir fechas cuenta los meses a partir del 0 (0 = enero, 11 = diciembre) y los días a partir del 1:
+console.log(new Date(2020, 1, 15))
+const casiNavidad = new Date(2021, 11, 25, 23, 59, 59)
+console.log(casiNavidad)
+const casiNavidad2 = new Date("December 25, 2021 23:59:59")
+console.log(casiNavidad2)
+
+const hoy = new Date("December 17, 2021")
+
+//metodos para extraer datos
+console.log(hoy.getFullYear()) // 2021
+console.log(hoy.getMonth()) // 11  (diciembre)
+console.log(hoy.getDay()) // 5  (viernes)
+
+//Diferentes presentaciones
+console.log( hoy.toDateString() ) // Fri Dec 17 2021
+console.log( hoy.toLocaleString() ) // 17/12/2021 00:00:00
+console.log( hoy.toLocaleDateString() ) // 17/12/2021
+console.log( hoy.toTimeString() ) // 00:00:00 GMT-0300 (hora estándar de Argentina)
