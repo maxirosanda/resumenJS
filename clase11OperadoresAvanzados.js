@@ -82,3 +82,19 @@ console.log( usuario3?.cursos?.javascript || "La propiedad no existe")
 // "aprobado"
 console.log( usuario3?.trabajos?.coderhouse || "La propiedad no existe")
 // "La propiedad no existe"
+
+
+//Desestructuración
+
+//Es decir, los nombres de las variables deben coincidir exactamente con los nombres de las propiedades que queremos obtener del objeto. Si intentamos desestructurar una propiedad inexistente en el objeto, obtendremos undefined.
+
+const usuario4 = {
+  nombre: "John Doe",
+  edad: 32
+}
+
+const { nombre, edad,telefono } = usuario4
+
+console.log(nombre) // "John Doe"
+console.log(edad) // 32
+console.log(telefono)
