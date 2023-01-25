@@ -139,8 +139,7 @@ window.addEventListener('click', ( {x, y} ) => {
 //Es posible desestructurar arrays de forma similar, usando corchetes [] en vez de llaves. La diferencia con la desestructuración de objetos es que la de arrays es posicional.
 const nombres = ["Juan", "Julieta", "Carlos", "Mariela"]
 
-const [a, b] = nombres
-
+let [a, b] = nombres
 console.log(a) // "Juan"
 console.log(b) // "Julieta"
 
@@ -204,9 +203,24 @@ const usuarioCoder3 = {
 }
 
 console.log(usuarioCoder3)
+console.log(usuarioCoder)
 // { nombre: 'Juan', edad: 24, curso: 'ReactJS', email: 'juan@doe.com' }
 
+//Rest parameters
+//Puedo hacer esto con el operador spread definiendo rest parameters, lo que significa que mi función va a recibir una cantidad indeterminada de parámetros, pero los va a agrupar dentro de un array con el nombre que defina, y con eso trabajará dentro:
+
+function mostrar(...numeros) {
+  console.log(numeros)
+}
+
+mostrar(4, 2) // [ 4, 2 ]
+mostrar(10, 15, 30, 5) // [ 10, 15, 30, 5 ]
 
 
+function sumar(...numeros) {
+  return numeros.reduce((acc, n) => acc + n, 0)
+}
 
-
+console.log( sumar(4, 2) ) // 6
+console.log( sumar(10, 15, 30, 5) ) // 60
+console.log( sumar(100, 300, 50) ) // 450
