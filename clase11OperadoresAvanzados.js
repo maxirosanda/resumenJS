@@ -179,5 +179,34 @@ const nombresObj = {
 console.log(nombresObj)
 // { '0': 'Juan', '1': 'Julieta', '2': 'Carlos', '3': 'Mariela' }
 
+//Spread de objetos
+//Se puede hacer spread de objetos también, pero debe hacerse dentro de una estructura que lo permita, como otro objeto.
+
+const usuarioCoder = {
+  nombre: "Juan",
+  edad: 24,
+  curso: "Javascript"
+}
+
+// lista todas las propiedades y valores de usuario1 dentro de otro objeto
+const usuarioCoder2 = {
+  ...usuarioCoder
+}
+
+console.log(usuarioCoder2) // { nombre: 'Juan', edad: 24, curso: 'Javascript' }
+
+//En el último ejemplo vemos que agregamos una propiedad y que modificamos la propiedad curso. Recordemos que no podemos tener dos propiedades con el mismo nombre, y en tal caso prevalece la última declarada, que es lo que ocurre aquí. 
+
+const usuarioCoder3 = {
+  ...usuarioCoder,
+  curso: "ReactJS",
+  email: "juan@doe.com"
+}
+
+console.log(usuarioCoder3)
+// { nombre: 'Juan', edad: 24, curso: 'ReactJS', email: 'juan@doe.com' }
+
+
+
 
 
