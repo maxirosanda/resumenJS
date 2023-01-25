@@ -98,3 +98,86 @@ const { nombre, edad,telefono } = usuario4
 console.log(nombre) // "John Doe"
 console.log(edad) // 32
 console.log(telefono)
+
+//Si queremos acceder a propiedades más internas dentro de un objeto, es decir desestructurar alguna propiedad que sea a la vez un objeto, es posible hacerlo siguiendo el mismo patrón.
+
+const usuario5 = {
+  nombre: "John Doe",
+  edad: 32,
+  telefono: {
+      cel: 113334444,
+      casa: null,
+      trabajo: 113325555
+  }
+}
+
+
+const { nombre:nombre2, telefono: {trabajo} } = usuario5
+
+console.log(nombre2) // "John Doe"
+console.log(trabajo) // 113325555
+
+//Desestructuración en parámetros
+const producto = {
+  id: 10,
+  nombre: "Curso Javascript",
+  precio: 12500
+}
+
+// desestructurando lo que reciba por parámetro
+const desestructurar = ( {id, nombre} ) => {
+  console.log(id, nombre)
+}
+
+desestructurar(producto) // 10 Curso Javascript
+
+window.addEventListener('click', ( {x, y} ) => {
+  console.log(x, y)
+})
+
+//Desestructuración de arrays
+//Es posible desestructurar arrays de forma similar, usando corchetes [] en vez de llaves. La diferencia con la desestructuración de objetos es que la de arrays es posicional.
+const nombres = ["Juan", "Julieta", "Carlos", "Mariela"]
+
+const [a, b] = nombres
+
+console.log(a) // "Juan"
+console.log(b) // "Julieta"
+
+//No funciona aquí la coincidencia por nombres, sino que se toman los valores según la posición. Las dos primeras variables que declaramos tomarán los valores de los dos primeros elementos del array. 
+
+// omito las dos primeras posiciones
+const [,, c, d] = nombres
+
+console.log(c) // "Carlos"
+console.log(d) // "Mariela"
+
+//Spread de arrays
+
+// spread ... del array
+console.log(...nombres) // Juan Julieta Carlos Mariela
+
+// equivalente a:
+console.log("Juan", "Julieta", "Carlo", "Mariela")
+
+//También podemos hacer spread de un array dentro de otras estructuras que lo admitan. Esto nos permite, por ejemplo, replicar el contenido de un array dentro de otra estructura al desparramar su contenido dentro. 
+
+const nombres1 = ["Juan", "Julieta"]
+const nombres2 = ["Carlos", "Mariela"]
+
+// spread de los dos arrays dentro de otro
+const nombresUnidos = [...nombres1, ...nombres2]
+
+console.log(nombresUnidos) // ["Juan", "Julieta", "Carlos", "Mariela"]
+
+//si lo hacemos dentro de un objeto veremos algo interesante, que cada propiedad toma como nombre el indice de los elementos
+
+const nombresObj = {
+  ...nombres
+}
+
+console.log(nombresObj)
+// { '0': 'Juan', '1': 'Julieta', '2': 'Carlos', '3': 'Mariela' }
+
+
+
