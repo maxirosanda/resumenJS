@@ -48,6 +48,7 @@ for (let letra of "mundo") {
   }, 3000)
 }
 */
+/*
 //Sabiendo cómo funciona el motor de Javascript para organizar las tareas sincrónicas y asincrónicas, queda más claro cómo es posible que una instrucción como la siguiente tiene  el resultado que tiene:
 
 console.log("Inicia proceso")
@@ -90,4 +91,50 @@ const fin = setTimeout(() => {
 
 
 clearTimeout(fin)
+*/
+
+//Resolve y Reject
+//Una promesa nos devuelve inmediatamente un valor que puede modificarse en el tiempo, ya que representa ésto mismo: la promesa de generar un valor a futuro. Es decir, una promesa cuenta con tres estados posibles: pending, fulfilled, rejected.
+//En principio, una promesa se retorna con estado pending, entendiendo que el valor a generar aún no fue resuelto. Pero las promesas contemplan la posibilidad de ser resueltas o rechazadas. Es decir, tienen la capacidad de generar distintos resultados según un caso u otro.
+
+const eventoFuturo = () => {
+  return new Promise( (resolve, reject) => {
+      //cuerpo de la promesa
+  } )
+}
+
+
+console.log( eventoFuturo() ) // Promise { <pending> }
+
+//Esta función retorna una promesa que no se resuelve. Por lo tanto, veremos que el valor que genera es un objeto Promise con estado pendiente. El valor de retorno de la promesa se define a través del llamado a las funciones de resolve o reject:Si el cuerpo de la promesa llama a resolve(), la promesa cambiará su estado a fulfilled, con el valor enviado a resolve().Si la promesa llama a reject(), cambiará su estado a rejected con el valor enviado al reject().
+
+const eventoFuturo2 = (res) => {
+  return new Promise( (resolve, reject) => {
+      if (res === true) {
+          resolve('Promesa resuelta')
+      } else {
+          reject('Promesa rechazada')
+      }
+    })
+  }
+  
+  
+  console.log( eventoFuturo2(true) ) // Promise { 'Promesa resuelta' }
+  console.log( eventoFuturo2(false) ) // Promise { <rejected> 'Promesa rechazada' }
+
+  //En este caso, el console.log es sincrónico y vemos que la promesa está en pending en ambos llamados. Su resolución se generará dentro de 2 segundos. Las promesas tienen un mecanismo para trabajar esta asincronía y poder ejecutar funciones cuando cambie su estado, es decir cuando se resuelva o se rechace.
+
+  const eventoFuturo3 = (res) => {
+    return new Promise( (resolve, reject) => {
+        setTimeout( () => {
+            res ? resolve('Promesa resuelta') : reject('Promesa rechazada')
+        }, 2000)
+    })
+}
+
+
+console.log( eventoFuturo3(true) ) // Promise { <pending> }
+console.log( eventoFuturo3(false) ) // Promise { <pending> }
+
+//THEN y CATCH:	Al llamado de una función que retorne una promesa, podemos concatenar el método .then() o .catch(), los cuales reciben una función por parámetro con la cual se captura el valor de la promesa.
 
