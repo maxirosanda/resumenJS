@@ -96,7 +96,7 @@ clearTimeout(fin)
 //Resolve y Reject
 //Una promesa nos devuelve inmediatamente un valor que puede modificarse en el tiempo, ya que representa ésto mismo: la promesa de generar un valor a futuro. Es decir, una promesa cuenta con tres estados posibles: pending, fulfilled, rejected.
 //En principio, una promesa se retorna con estado pending, entendiendo que el valor a generar aún no fue resuelto. Pero las promesas contemplan la posibilidad de ser resueltas o rechazadas. Es decir, tienen la capacidad de generar distintos resultados según un caso u otro.
-
+/*
 const eventoFuturo = () => {
   return new Promise( (resolve, reject) => {
       //cuerpo de la promesa
@@ -167,3 +167,32 @@ eventoFuturo3(true)
     })
 // Promesa resuelta
 // Fin del proceso
+*/
+
+//Aprovechando lo que vimos de asincronía y promesas, podemos simular una acción típica de una web app, como es la petición de datos a algún servidor y generar alguna interacción con el resultado.
+
+// función que tras 3 segundo retorna un array de objetos
+
+const BD = [
+  {id: 1, nombre: 'Producto 1', precio: 1500},
+  {id: 2, nombre: 'Producto 2', precio: 2500},
+  {id: 3, nombre: 'Producto 3', precio: 3500},
+  {id: 4, nombre: 'Producto 4', precio: 3500},
+]
+
+
+const pedirProductos = () => {
+  return new Promise( (resolve, reject) => {
+      setTimeout(() => {
+          resolve(BD)
+      }, 3000)
+  })
+}
+
+// asincrónicamente pedimos los datos y generamos la vista
+
+pedirProductos()
+  .then((res) => {
+      console.log(res)
+  })
+
