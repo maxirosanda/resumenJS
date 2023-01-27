@@ -60,3 +60,34 @@ setTimeout(()=> {
 
 console.log("Fin proceso")
 
+//	Por más que hagamos el timeout con 0 milisegundos, éste se envía al stack de web apis primero, luego al callback queue, y finalmente el event loop lo incorpora al callstack para su ejecución, luego de los console.log anteriores.
+
+setInterval(() => {
+  console.log("Tic")
+}, 1000)
+
+//Cuando llamamos un setInterval() éste retorna una referencia al intervalo generado, el cual podemos almacenar en una variable. Es esta referencia la que debemos pasar a la función clearInterval para que la limpieza tenga efecto:
+
+let counter = 0
+
+const interval = setInterval(() => {
+    counter++
+    console.log("Counter: ", counter)
+
+
+    if (counter >= 5) {
+        clearInterval(interval)
+        console.log("Se removió el intervalo")
+    }
+}, 1000)
+
+console.log("Inicio")
+
+//Lo mismo funciona con los timeout. Si guardamos en una variable la referencia al timeout generado, podemos usarla para removerlo luego por algún motivo que determinemos. En el siguiente caso, el timeout generado nunca llega a ejecutarse:
+const fin = setTimeout(() => {
+    console.log("fin")
+}, 2000)
+
+
+clearTimeout(fin)
+
