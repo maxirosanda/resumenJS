@@ -1,0 +1,21 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.popup-mensaje{
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 255, 0.69);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.popup-mensaje h3{
+  color: white;
+  font-size: 24px;
+}
+.popup-active{
+  display: flex;
+}
