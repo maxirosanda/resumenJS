@@ -138,3 +138,32 @@ console.log( eventoFuturo3(false) ) // Promise { <pending> }
 
 //THEN y CATCH:	Al llamado de una función que retorne una promesa, podemos concatenar el método .then() o .catch(), los cuales reciben una función por parámetro con la cual se captura el valor de la promesa.
 
+eventoFuturo3(true)
+    .then( (response) => {
+        console.log(response) // Promesa resuelta
+    })
+    .catch( (error) => {
+        console.log(error)
+    })
+
+
+  eventoFuturo3(false)
+    .then( (response) => {
+        console.log(response)
+    })
+    .catch( (error) => {
+        console.log(error) // Promesa rechazada
+    })
+//Las promesas nos ofrecen también un método finally() que recibe una función la cual se ejecutará siempre al finalizar la secuencia, sin importar si se haya resuelto o no la promesa:
+eventoFuturo3(true)
+    .then( (response) => {
+        console.log(response)
+    })
+    .catch( (error) => {
+        console.log(error)
+    })
+    .finally( () => {
+        console.log("Fin del proceso")
+    })
+// Promesa resuelta
+// Fin del proceso
